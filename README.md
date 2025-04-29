@@ -41,3 +41,59 @@ The simulator outputs `ACCEPT` if the input string can lead to an accepting stat
 
 ## 📂 NFA Input File Example (`nfa.txt`)
 
+3 2 1 0 2 1 1 2 1 -1 3 3 -1 1 3 0 2
+
+**Explanation**:
+- **States**: 1, 2, 3
+- **Accepting State**: 2
+- **Transitions**:
+  - From 1, input `0` → 2
+  - From 1, input `1` → 2
+  - From 1, ε-move → 3
+  - From 3, ε-move → 1
+  - From 3, input `0` → 2
+
+---
+
+## 🚀 How to Run
+
+1. Save the provided Java file `NFASimulator.java`.
+2. Create the `nfa.txt` file in the same directory with the structure shown above.
+3. Compile the program:
+   ```bash
+   javac NFASimulator.java
+   java NFASimulator
+
+
+Test Cases
+Test the simulator on the following inputs:
+
+
+Input String	Expected Output
+0	            ACCEPT
+01	            ACCEPT
+110	            ACCEPT
+0100	        ACCEPT
+100	            REJECT
+Remember to capture screenshots for each test run.
+
+🛠 Data Structures Used
+
+Data Structure	Purpose
+
+Map<Integer, Map<Integer, List<Integer>>> transitions	Store the NFA transitions, including ε-transitions.
+Set<Integer> acceptingStates	Store accepting (final) states.
+Set<Integer> currentStates	Track the current active set of states during simulation.
+⚙️ Special Handling of Epsilon Cycles
+To prevent infinite loops caused by cycles of ε-transitions:
+
+The epsilon closure uses a stack to explore reachable states.
+
+A visited set ensures each state is processed only once per closure computation.
+
+
+
+
+
+
+
