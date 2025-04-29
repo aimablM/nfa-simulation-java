@@ -4,7 +4,7 @@
 
 ---
 
-## 🛠 Project Overview
+## Project Overview
 
 This project simulates the operation of a nondeterministic finite automaton (NFA) with ε-transitions on a binary input string (`0`s and `1`s).
 
@@ -17,7 +17,7 @@ The simulator outputs `ACCEPT` if the input string can lead to an accepting stat
 
 ---
 
-## 📚 How It Works
+## How It Works
 
 1. **Load the NFA**:  
    The NFA definition is read from a text file structured as:
@@ -39,7 +39,7 @@ The simulator outputs `ACCEPT` if the input string can lead to an accepting stat
 
 ---
 
-## 📂 NFA Input File Example (`nfa.txt`)
+## NFA Input File Example (`nfa.txt`)
 
 3 2 1 0 2 1 1 2 1 -1 3 3 -1 1 3 0 2
 
@@ -55,7 +55,7 @@ The simulator outputs `ACCEPT` if the input string can lead to an accepting stat
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Save the provided Java file `NFASimulator.java`.
 2. Create the `nfa.txt` file in the same directory with the structure shown above.
@@ -72,9 +72,9 @@ Test the simulator on the following inputs:
 Input String	Expected Output
 0	            ACCEPT
 01	            ACCEPT
-110	            ACCEPT
-0100	        ACCEPT
-100	            REJECT
+110	         ACCEPT
+0100	         ACCEPT
+100	         REJECT
 Remember to capture screenshots for each test run.
 
 🛠 Data Structures Used
