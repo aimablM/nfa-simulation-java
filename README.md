@@ -1,74 +1,43 @@
 # NFA-Simulation-Java
-🧠 Diagram Info:
-The NFA has:
+# COSC 417 Assignment - Programming Task 2
+## NFA (Nondeterministic Finite Automaton) Simulator
 
-States: q1, q2, q3
+---
 
-Start State: q1
+## 🛠 Project Overview
 
-Accepting State: q2
+This project simulates the operation of a nondeterministic finite automaton (NFA) with ε-transitions on a binary input string (`0`s and `1`s).
 
-Transitions:
+The NFA is:
+- Read from an external file.
+- Traversed using depth-first search with epsilon closure handling.
+- Capable of handling cycles formed purely by ε-transitions.
 
-q1 → q2 on 0 or 1
+The simulator outputs `ACCEPT` if the input string can lead to an accepting state, and `REJECT` otherwise.
 
-q1 → q3 on ε (epsilon)
+---
 
-q3 → q1 on ε (epsilon)
+## 📚 How It Works
 
-q3 → q2 on 0
+1. **Load the NFA**:  
+   The NFA definition is read from a text file structured as:
+   - **Line 1**: Number of states.
+   - **Line 2**: List of accepting states.
+   - **Subsequent lines**: Transitions in the format `(startState, inputSymbol, endState)`.
+     - `-1` denotes an ε-transition (no input consumed).
 
-(There is a cycle between q1 and q3 through ε-transitions.)
+2. **Epsilon Closure Expansion**:  
+   Before and after each input symbol transition, the epsilon closure is computed to account for ε-moves.
 
-🧠 Now matching to numbers:
-Let’s label:
+3. **Simulation**:  
+   The program simulates all possible paths using:
+   - Normal transitions (`0`, `1`).
+   - Epsilon transitions (`ε`).
 
-q1 → 1
+4. **Acceptance Check**:  
+   If any computation path leads to an accepting state after processing the entire input, the machine accepts the string.
 
-q2 → 2
+---
 
-q3 → 3
-
-✅ nfa.txt CONTENT:
-Copy
-Edit
-3
-2
-1 0 2
-1 1 2
-1 -1 3
-3 -1 1
-3 0 2
-
-Line	Meaning
-3	Number of states (1, 2, 3)
-2	Accepting state is 2
-1 0 2	From state 1 on input 0, go to state 2
-1 1 2	From state 1 on input 1, go to state 2
-1 -1 3	From state 1 via ε-move, go to 3
-3 -1 1	From state 3 via ε-move, go to 1
-3 0 2	From state 3 on input 0, go to 2
-🗂 Instructions
-✅ Create a plain text file called nfa.txt.
-✅ Copy-paste the above 6 lines exactly.
-✅ Save it in the same folder as your NFASimulator.java.
-
-🧪 Test cases from assignment:
-
-Input string	Expected Output
-0	ACCEPT
-01	ACCEPT
-110	ACCEPT
-0100	ACCEPT
-100	REJECT
-(You will see why when we explain the ε-cycles.)
-
-🚀 QUICK NEXT STEPS CHECKLIST:
- Save the nfa.txt above.
-
- Compile and run your program.
-
- Enter nfa.txt when asked.
-
- Test with 0, 01, 110, 0100, and 100.
+## 📂 NFA Input File Example (`nfa.txt`)
 
