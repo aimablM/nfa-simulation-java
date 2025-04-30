@@ -77,14 +77,15 @@ Input String	Expected Output
 100	         REJECT
 Remember to capture screenshots for each test run.
 
-🛠 Data Structures Used
+Data Structures Used
 
 Data Structure	Purpose
 
 Map<Integer, Map<Integer, List<Integer>>> transitions	Store the NFA transitions, including ε-transitions.
 Set<Integer> acceptingStates	Store accepting (final) states.
 Set<Integer> currentStates	Track the current active set of states during simulation.
-⚙️ Special Handling of Epsilon Cycles
+
+Special Handling of Epsilon Cycles
 To prevent infinite loops caused by cycles of ε-transitions:
 
 The epsilon closure uses a stack to explore reachable states.
